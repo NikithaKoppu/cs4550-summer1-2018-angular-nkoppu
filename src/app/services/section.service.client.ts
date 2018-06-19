@@ -10,6 +10,14 @@ export class SectionServiceClient {
       .then(response => response.json());
   }
 
+  unenrollStudentInSection(sectionId) {
+    const url = 'http://localhost:4000/api/student/section/' + sectionId;
+    return fetch(url, {
+      method: 'delete',
+      credentials: 'include'
+    });
+  }
+
   enrollStudentInSection(sectionId) {
     const url = 'http://localhost:4000/api/section/' + sectionId + '/enrollment';
     return fetch(url, {
