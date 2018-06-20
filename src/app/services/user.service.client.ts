@@ -13,17 +13,17 @@ export class UserServiceClient {
   }
 
   login(username, password) {
-    const creds = {
+    const credentials = {
       username: username,
       password: password
     };
     return fetch('http://localhost:4000/api/login',
       {
-      body: JSON.stringify(creds),
-      credentials: 'include', // include, same-origin, *omit
-      method: 'post',
-      headers: {
-        'content-type': 'application/json'
+        method: 'post',
+        body: JSON.stringify(credentials),
+        credentials: 'include', // include, same-origin, *omit
+        headers: {
+          'content-type': 'application/json'
       }
     });
   }

@@ -31,5 +31,8 @@
 
   <a (click)="logout()">Logout</a>
   <a routerLink="/home">Home</a>
+  <div *ngIf="user.username == 'admin'">
+    <a routerLink="/admin">Admin Page</a>
+  </div>
 
 </div>

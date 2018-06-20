@@ -1,3 +1,42 @@
-<p>
-  admin works!
-</p>
+<h2>Admin Page</h2>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6">
+    <ul class="list-group">
+      <li class="list-group-item active"> Courses </li>
+        <li *ngFor="let course of courses"
+        (click)="selectCourse(course.id)"
+            class="list-group-item"><h4>{{course.title}}</h4>
+          <a routerLink="/course/{{course.id}}" class="btn btn-primary">Course Info</a>
+      </li>
+    </ul>
+    </div>
+
+    <div class="col-6">
+      <h4>Sections</h4>
+    <input [(ngModel)]="sectionName"
+           placeholder="Section Name"
+           class="form-control">
+    <input [(ngModel)]="seats"
+           placeholder="Seats Available"
+           class="form-control">
+    <button (click)="createSection(sectionName, seats)" class="btn btn-success btn-block">
+      Add Section
+    </button>
+
+    <ul class="list-group">
+      <li *ngFor="let section of sections" class="list-group-item">
+        {{section.name}} {{section.seats}}
+        <button (click)="deleteSection(section._id)"
+                class=" float-right btn btn-danger">Delete</button>
+        <button (click)="updateSection(section._id, section.courseId, sectionName, seats)"
+                class=" float-right btn btn-primary">Update</button>
+      </li>
+    </ul>
+    </div>
+  </div>
+
+<a routerLink="/profile"><h4>Profile</h4></a>
+<a routerLink="/home"><h4>Home</h4></a>
+</div>

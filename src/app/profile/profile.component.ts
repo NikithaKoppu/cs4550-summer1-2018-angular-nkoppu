@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit {
               private sectionService: SectionServiceClient,
               private router: Router) { }
   user: User = new User();
+  courses = [];
   sections = [];
   update(user: User) {
     console.log(user);
